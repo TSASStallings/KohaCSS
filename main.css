@@ -1,22 +1,24 @@
 /* ============================================
-     TSAS Library Catalog - Custom Styling
-     Colors: Cardinal, Indigo Dye, Carolina Blue
+     TSAS Library Catalog
+     Matches Educenter Hugo Theme / Bootstrap 4.4.1
      ============================================ */
+
+/* === FONTS (match main site) === */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
 
 /* === LOGO === */
 #logo {
     background: transparent
-        url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.png")
-        no-repeat scroll 0%;
-    background-size: 155px;
-    height: 95px;
-    padding-top: 10px;
-    width: 155px;
+        url("https://tsasstallings.github.io/KohaCSS/logo-icon.svg") no-repeat
+        scroll 0%;
+    background-size: 60px;
+    height: 70px;
+    width: 60px;
 }
 
 #logo a {
-    padding: 95px 0 0;
-    width: 155px;
+    padding: 70px 0 0;
+    width: 60px;
     display: block;
 }
 
@@ -25,13 +27,13 @@
 }
 
 #login h1 {
-    background: url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.png")
+    background: url("https://tsasstallings.github.io/KohaCSS/logo-icon.svg")
         no-repeat scroll center top transparent;
-    background-size: 325px 100px;
-    padding-top: 110px;
+    background-size: 120px;
+    padding-top: 130px;
 }
 
-/* === HEADER (Indigo Dye) === */
+/* === HEADER (Indigo Dye - matches footer) === */
 #header-region {
     background: #094074 !important;
 }
@@ -40,6 +42,7 @@
     background: #094074 !important;
 }
 
+/* Cardinal accent bar */
 body::before {
     content: "";
     display: block;
@@ -59,6 +62,9 @@ body::before {
 #header-region .nav-link,
 #header-region a {
     color: rgba(255, 255, 255, 0.9) !important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 #header-region .nav-link:hover,
@@ -66,41 +72,86 @@ body::before {
     color: #fff !important;
 }
 
+/* === TYPOGRAPHY (match main site) === */
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #5c5c77;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #094074;
+}
+
+h1 {
+    font-size: 45px;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 18px;
+}
+
 /* === SEARCH AREA === */
 .mastheadsearch {
     background: #f8f9fe;
     padding: 2rem 1.5rem;
-    border-radius: 8px;
+    border-radius: 0;
     margin: 1rem 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 #searchsubmit,
 .btn-primary {
     background: #ad343e !important;
     border-color: #ad343e !important;
-    border-radius: 6px;
+    border-radius: 0;
+    padding: 12px 30px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
 }
 
 #searchsubmit:hover,
 .btn-primary:hover {
     background: #8a2a32 !important;
     border-color: #8a2a32 !important;
+    transform: translateY(-2px);
 }
 
-.form-control:focus,
-.form-select:focus {
+.form-control {
+    border-radius: 0;
     border-color: #82b1d4;
-    box-shadow: 0 0 0 0.2rem rgba(130, 177, 212, 0.25);
+    padding: 12px 20px;
+    height: auto;
 }
 
-/* === LINKS (Cardinal) === */
+.form-control:focus {
+    border-color: #ad343e;
+    box-shadow: none;
+}
+
+/* === LINKS === */
 a {
     color: #ad343e;
+    transition: all 0.3s ease;
 }
 
 a:hover {
     color: #8a2a32;
+    text-decoration: none;
 }
 
 #moresearches a {
@@ -112,7 +163,14 @@ a:hover {
     color: #ad343e;
 }
 
-/* === BUTTONS === */
+/* === BUTTONS (match Educenter style) === */
+.btn {
+    border-radius: 0;
+    padding: 15px 40px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
 .btn-primary {
     background: #ad343e !important;
     border-color: #ad343e !important;
@@ -122,6 +180,7 @@ a:hover {
 .btn-primary:focus {
     background: #8a2a32 !important;
     border-color: #8a2a32 !important;
+    box-shadow: none;
 }
 
 .btn-secondary {
@@ -131,12 +190,24 @@ a:hover {
 
 .btn-secondary:hover {
     background: #094074 !important;
+    border-color: #094074 !important;
+}
+
+.btn-outline-primary {
+    color: #ad343e;
+    border-color: #ad343e;
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: #ad343e;
+    color: #fff;
 }
 
 /* === BREADCRUMBS === */
 .breadcrumb {
     background: #f8f9fe;
-    border-radius: 6px;
+    border-radius: 0;
     padding: 0.75rem 1rem;
 }
 
@@ -153,6 +224,7 @@ body#opac-main ul.breadcrumb {
 }
 
 .title a {
+    font-family: "Montserrat", sans-serif;
     color: #094074;
     font-weight: 600;
 }
@@ -161,22 +233,26 @@ body#opac-main ul.breadcrumb {
     color: #ad343e;
 }
 
-/* === CARDS & PANELS === */
+/* === CARDS & PANELS (match Educenter cards) === */
 .panel,
 .card {
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
 }
 
 .panel-heading,
 .card-header {
     background: #f8f9fe;
     border-bottom: 2px solid #82b1d4;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
 }
 
 /* === FACETS === */
 #search-facets h2,
 #search-facets h3 {
+    font-family: "Montserrat", sans-serif;
     color: #094074;
     border-bottom: 2px solid #ad343e;
     padding-bottom: 0.5rem;
@@ -185,6 +261,7 @@ body#opac-main ul.breadcrumb {
 /* === PAGINATION === */
 .pagination .page-link {
     color: #094074;
+    border-radius: 0;
 }
 
 .pagination .page-item.active .page-link {
@@ -192,32 +269,16 @@ body#opac-main ul.breadcrumb {
     border-color: #ad343e;
 }
 
-/* === TYPOGRAPHY === */
-body {
-    font-family:
-        "Poppins",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        sans-serif;
-    color: #5c5c77;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #094074;
-    font-weight: 600;
-}
-
 /* === DROPDOWN MENUS === */
 .dropdown-menu {
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    font-family: "Poppins", sans-serif;
+    padding: 10px 20px;
 }
 
 .dropdown-item:hover {
@@ -229,6 +290,9 @@ h6 {
 .table thead th {
     background: #094074;
     color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    border: none;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -244,10 +308,63 @@ h6 {
 .alert-info {
     background: rgba(130, 177, 212, 0.15);
     border-color: #82b1d4;
+    border-radius: 0;
     color: #094074;
 }
 
-/* === LOGIN FORM INPUTS === */
+.alert-success {
+    border-left: 4px solid #28a745;
+    border-radius: 0;
+}
+
+.alert-warning {
+    border-left: 4px solid #ffdd4a;
+    border-radius: 0;
+}
+
+/* === LOGIN FORM === */
 #login .form-control {
     border-color: #82b1d4;
+    border-radius: 0;
+}
+
+/* === FOOTER (match main site dark footer) === */
+#opac-custom-footer,
+footer {
+    background: #182b45;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#opac-custom-footer a,
+footer a {
+    color: #82b1d4;
+}
+
+#opac-custom-footer a:hover,
+footer a:hover {
+    color: #fff;
+}
+
+/* === RESPONSIVE (match Educenter breakpoints) === */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+
+    #logo {
+        background-size: 50px;
+        height: 55px;
+        width: 50px;
+    }
+
+    #logo a {
+        padding: 55px 0 0;
+        width: 50px;
+    }
 }
