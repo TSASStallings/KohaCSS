@@ -9,8 +9,8 @@
 /* === LOGO === */
 #logo {
     background: transparent
-        url("https://tsasstallings.github.io/KohaCSS/logo-icon.svg") no-repeat
-        scroll 0%;
+        url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.svg")
+        no-repeat scroll 0%;
     background-size: 60px;
     height: 70px;
     width: 60px;
@@ -27,7 +27,7 @@
 }
 
 #login h1 {
-    background: url("https://tsasstallings.github.io/KohaCSS/logo-icon.svg")
+    background: url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.svg")
         no-repeat scroll center top transparent;
     background-size: 120px;
     padding-top: 130px;
