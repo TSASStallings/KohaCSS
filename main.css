@@ -11,9 +11,9 @@
     background: transparent
         url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.svg")
         no-repeat scroll 0%;
-    background-size: 60px;
+    background-size: 120px;
     height: 70px;
-    width: 60px;
+    width: 120px;
 }
 
 #logo a {
