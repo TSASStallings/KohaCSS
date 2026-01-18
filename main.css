@@ -1,0 +1,253 @@
+/* ============================================
+     TSAS Library Catalog - Custom Styling
+     Colors: Cardinal, Indigo Dye, Carolina Blue
+     ============================================ */
+
+/* === LOGO === */
+#logo {
+    background: transparent
+        url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.png")
+        no-repeat scroll 0%;
+    background-size: 155px;
+    height: 95px;
+    padding-top: 10px;
+    width: 155px;
+}
+
+#logo a {
+    padding: 95px 0 0;
+    width: 155px;
+    display: block;
+}
+
+#logo a.navbar-brand {
+    font-size: 0;
+}
+
+#login h1 {
+    background: url("https://tsasstallings.github.io/KohaCSS/liblogo-half-words.png")
+        no-repeat scroll center top transparent;
+    background-size: 325px 100px;
+    padding-top: 110px;
+}
+
+/* === HEADER (Indigo Dye) === */
+#header-region {
+    background: #094074 !important;
+}
+
+#header-region .navbar {
+    background: #094074 !important;
+}
+
+body::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: #ad343e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+#header-region {
+    margin-top: 4px;
+}
+
+#header-region .nav-link,
+#header-region a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+#header-region .nav-link:hover,
+#header-region a:hover {
+    color: #fff !important;
+}
+
+/* === SEARCH AREA === */
+.mastheadsearch {
+    background: #f8f9fe;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+#searchsubmit,
+.btn-primary {
+    background: #ad343e !important;
+    border-color: #ad343e !important;
+    border-radius: 6px;
+}
+
+#searchsubmit:hover,
+.btn-primary:hover {
+    background: #8a2a32 !important;
+    border-color: #8a2a32 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #82b1d4;
+    box-shadow: 0 0 0 0.2rem rgba(130, 177, 212, 0.25);
+}
+
+/* === LINKS (Cardinal) === */
+a {
+    color: #ad343e;
+}
+
+a:hover {
+    color: #8a2a32;
+}
+
+#moresearches a {
+    color: #094074;
+    font-weight: 500;
+}
+
+#moresearches a:hover {
+    color: #ad343e;
+}
+
+/* === BUTTONS === */
+.btn-primary {
+    background: #ad343e !important;
+    border-color: #ad343e !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #8a2a32 !important;
+    border-color: #8a2a32 !important;
+}
+
+.btn-secondary {
+    background: #3c6997 !important;
+    border-color: #3c6997 !important;
+}
+
+.btn-secondary:hover {
+    background: #094074 !important;
+}
+
+/* === BREADCRUMBS === */
+.breadcrumb {
+    background: #f8f9fe;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+}
+
+body#opac-main ul.breadcrumb {
+    display: none;
+}
+
+/* === RESULTS & CONTENT === */
+.record,
+.bibliodetail {
+    border-left: 3px solid #ad343e;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.title a {
+    color: #094074;
+    font-weight: 600;
+}
+
+.title a:hover {
+    color: #ad343e;
+}
+
+/* === CARDS & PANELS === */
+.panel,
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.panel-heading,
+.card-header {
+    background: #f8f9fe;
+    border-bottom: 2px solid #82b1d4;
+}
+
+/* === FACETS === */
+#search-facets h2,
+#search-facets h3 {
+    color: #094074;
+    border-bottom: 2px solid #ad343e;
+    padding-bottom: 0.5rem;
+}
+
+/* === PAGINATION === */
+.pagination .page-link {
+    color: #094074;
+}
+
+.pagination .page-item.active .page-link {
+    background: #ad343e;
+    border-color: #ad343e;
+}
+
+/* === TYPOGRAPHY === */
+body {
+    font-family:
+        "Poppins",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    color: #5c5c77;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #094074;
+    font-weight: 600;
+}
+
+/* === DROPDOWN MENUS === */
+.dropdown-menu {
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+    background: #f8f9fe;
+    color: #ad343e;
+}
+
+/* === TABLES === */
+.table thead th {
+    background: #094074;
+    color: #fff;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: #f8f9fe;
+}
+
+/* === FLIPSTER CAROUSEL === */
+.flipster {
+    overflow-y: hidden !important;
+}
+
+/* === ALERTS === */
+.alert-info {
+    background: rgba(130, 177, 212, 0.15);
+    border-color: #82b1d4;
+    color: #094074;
+}
+
+/* === LOGIN FORM INPUTS === */
+#login .form-control {
+    border-color: #82b1d4;
+}
