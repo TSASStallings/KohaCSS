@@ -35,11 +35,11 @@
 
 /* === HEADER (Indigo Dye - matches footer) === */
 #header-region {
-    background: #094074 !important;
+    background: #3c6997 !important;
 }
 
 #header-region .navbar {
-    background: #094074 !important;
+    background: #3c6997 !important;
 }
 
 /* Cardinal accent bar */
@@ -367,4 +367,221 @@ footer a:hover {
         padding: 55px 0 0;
         width: 50px;
     }
+}
+
+/* ============================================
+   SEARCH RESULTS PAGE FIXES
+   ============================================ */
+
+/* === LINKS - Blue primary, light blue visited === */
+a {
+    color: #094074;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #3c6997;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #82b1d4;
+}
+
+/* Title links stay dark, use cardinal on hover */
+.title a,
+.title a:visited {
+    color: #094074;
+}
+
+.title a:hover {
+    color: #AD343E;
+}
+
+/* === SIDEBAR - Match main site course filters === */
+#search-facets {
+    background: #f7f9fc;
+    border: 1px solid #e1e7f1;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+#search-facets h2,
+#search-facets legend {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #094074;
+    margin-bottom: 0.75rem;
+    border-bottom: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+#search-facets h3,
+#search-facets .facet-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3c6997;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #82b1d4;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+#search-facets ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+#search-facets li {
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #e1e7f1;
+}
+
+#search-facets li:last-child {
+    border-bottom: none;
+}
+
+#search-facets a {
+    color: #094074;
+    font-size: 0.9rem;
+}
+
+#search-facets a:hover {
+    color: #AD343E;
+}
+
+#search-facets .facet-count {
+    color: #82b1d4;
+    font-size: 0.8rem;
+}
+
+/* === RESULTS TOOLBAR - Fix spacing === */
+#toolbar,
+.results-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+#toolbar .btn,
+.results-controls .btn {
+    padding: 0.5rem 1rem;
+}
+
+/* Unhighlight/Select row */
+.searchresults .actions,
+#selection_ops {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: flex-start;
+}
+
+#selection_ops span {
+    margin: 0 !important;
+}
+
+/* === RSS ICON - Move it inline === */
+.rss-icon,
+a.rssfeed,
+a[href*="rss"] img,
+#rssfeed {
+    position: relative !important;
+    float: none !important;
+    right: auto !important;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.searchresults h1,
+#numresults {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* === RESULTS LIST - Cleaner spacing === */
+.searchresults .record {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e1e7f1;
+    border-left: 4px solid #094074;
+    border-radius: 0 8px 8px 0;
+    background: #fff;
+}
+
+.searchresults .record:hover {
+    border-left-color: #AD343E;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Availability badge */
+.results_summary.availability {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: #f7f9fc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Action links */
+.searchresults .actions a,
+.searchresults .btn-link {
+    color: #094074;
+    font-size: 0.9rem;
+}
+
+.searchresults .actions a:hover {
+    color: #AD343E;
+}
+
+/* === PAGINATION - Use indigo === */
+.pagination .page-link {
+    color: #094074;
+    border-color: #e1e7f1;
+}
+
+.pagination .page-item.active .page-link {
+    background: #094074;
+    border-color: #094074;
+}
+
+.pagination .page-link:hover {
+    background: #f7f9fc;
+    color: #AD343E;
+}
+
+/* === SUGGESTIONS LINK - Mustard accent === */
+.suggestions a,
+a[href*="suggestion"] {
+    color: #094074;
+    border-bottom: 2px solid #ffdd4a;
+    padding-bottom: 2px;
+}
+
+.suggestions a:hover {
+    color: #AD343E;
+}
+
+/* === SORT DROPDOWN === */
+.sort-options select,
+#sort_by {
+    border: 1px solid #e1e7f1;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    color: #094074;
+}
+
+/* === IMAGE ATTRIBUTION === */
+.results_summary.image,
+.image-source {
+    font-size: 0.75rem;
+    color: #82b1d4;
 }
