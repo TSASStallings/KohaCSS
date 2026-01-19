@@ -170,7 +170,7 @@ a:hover {
 /* === BUTTONS (match Educenter style) === */
 .btn {
     border-radius: 0;
-    padding: 15px 40px;
+    padding: 5px 10px;
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -556,7 +556,10 @@ a[href*="rss"] img,
     border-color: #e1e7f1;
 }
 
-.pagination .page-item.active .page-link {
+.pagination .page-item.active .page-link,
+.pagination .page-link[aria-current="page"],
+.pagination li[aria-current="page"] a {
+    color: #fff !important;
     background: #094074;
     border-color: #094074;
 }
@@ -564,6 +567,11 @@ a[href*="rss"] img,
 .pagination .page-link:hover {
     background: #f7f9fc;
     color: #ad343e;
+}
+
+/* Hide non-functional refine toggle */
+.menu-collapse-toggle {
+    display: none;
 }
 
 /* === SUGGESTIONS LINK - Mustard accent === */
