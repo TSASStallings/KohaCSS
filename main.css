@@ -646,6 +646,11 @@ a[href*="suggestion"] {
     font-weight: 700;
 }
 
+/* Remove default Koha bracket after call numbers */
+span.CallNumber::after {
+    content: none !important;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 767px) {
     h1 {
