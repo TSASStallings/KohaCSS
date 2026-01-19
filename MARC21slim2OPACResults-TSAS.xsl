@@ -30,6 +30,26 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- TSAS: Helper template to convert numbers to words -->
+    <xsl:template name="numberToWords">
+        <xsl:param name="number"/>
+        <xsl:choose>
+            <xsl:when test="$number = 1">One</xsl:when>
+            <xsl:when test="$number = 2">Two</xsl:when>
+            <xsl:when test="$number = 3">Three</xsl:when>
+            <xsl:when test="$number = 4">Four</xsl:when>
+            <xsl:when test="$number = 5">Five</xsl:when>
+            <xsl:when test="$number = 6">Six</xsl:when>
+            <xsl:when test="$number = 7">Seven</xsl:when>
+            <xsl:when test="$number = 8">Eight</xsl:when>
+            <xsl:when test="$number = 9">Nine</xsl:when>
+            <xsl:when test="$number = 10">Ten</xsl:when>
+            <xsl:when test="$number = 11">Eleven</xsl:when>
+            <xsl:when test="$number = 12">Twelve</xsl:when>
+            <xsl:otherwise><xsl:value-of select="$number"/></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <xsl:template match="/">
             <xsl:apply-templates/>
     </xsl:template>
@@ -1316,7 +1336,7 @@
                 <status english="Not for loan">Not for loan</status>
             </xsl:variable>
 
-            <span class="label">Availability: </span>
+            <!-- TSAS: Removed "Availability:" label -->
 
             <xsl:choose>
                 <!-- When there are no items, try alternate holdings -->
@@ -1340,9 +1360,9 @@
                     <xsl:variable name="sumAv" select="count(key('item-by-status', 'available'))"/>
                     <xsl:variable name="sumRef" select="count(key('item-by-status', 'reference'))"/>
 
+                    <!-- TSAS: Simplified availability - no verbose labels -->
                     <!-- Availability part 1: ITEMS FOR LOAN -->
                     <xsl:if test="$sumAv>0"><span class="available reallyavailable">
-                        <span class="AvailabilityLabel"><strong><xsl:text>Items available for loan: </xsl:text></strong></span>
                         <xsl:variable name="available_items" select="key('item-by-status', 'available')"/>
                         <!-- group by branch, see also pref OPACResultsLibrary -->
                         <xsl:for-each select="$available_items[not(items:resultbranch=preceding-sibling::*[items:status='available']/items:resultbranch)]">
@@ -1363,7 +1383,6 @@
 
                     <!-- Availability part 2: ITEMS FOR REFERENCE (see also pref Reference_NFL_Statuses) -->
                     <xsl:if test="$sumRef>0"><span class="available reference">
-                        <span class="AvailabilityLabel"><strong><xsl:text>Items available for reference: </xsl:text></strong></span>
                         <xsl:variable name="reference_items" select="key('item-by-status', 'reference')"/>
                         <!-- group by branch, then by substatus -->
                         <xsl:for-each select="$reference_items[not(items:resultbranch=preceding-sibling::*[items:status='reference']/items:resultbranch)]">
@@ -1392,7 +1411,6 @@
 
                     <!-- Availability part 3: UNAVAILABLE ITEMS (see also pref Reference_NFL_Statuses); status reallynotforloan or status other -->
                     <xsl:if test="number($sumAv+$sumRef) &lt; number($itemcount)"><span class="unavailable">
-                        <span class="AvailabilityLabel"><strong><xsl:text>Not available: </xsl:text></strong></span>
                         <xsl:variable name="unavailable_items" select="key('item-by-status', 'reallynotforloan')|key('item-by-status', 'other')"/>
                         <xsl:choose>
                             <xsl:when test="$OPACResultsUnavailableGroupingBy='branch'">
@@ -1568,13 +1586,16 @@
         <xsl:param name="OPACItemLocation"/>
         <xsl:if test="count($items)>0">
             <span><xsl:attribute name="class"><xsl:value-of select="$class_block"/></xsl:attribute>
-                <span>
-                    <xsl:attribute name="class"><xsl:value-of select="$class_status"/></xsl:attribute>
-                    <xsl:value-of select="$status_text"/>
+                <!-- TSAS: Spelled-out count with copy/copies, no branch name -->
+                <span class="availability-count">
+                    <xsl:call-template name="numberToWords">
+                        <xsl:with-param name="number" select="count($items)"/>
+                    </xsl:call-template>
+                    <xsl:choose>
+                        <xsl:when test="count($items) = 1"> copy available</xsl:when>
+                        <xsl:otherwise> copies available</xsl:otherwise>
+                    </xsl:choose>
                 </span>
-                <xsl:text> (</xsl:text>
-                <xsl:value-of select="count($items)"/>
-                <xsl:text>)</xsl:text>
                 <xsl:if test="$max>0 and count($items[items:itemcallnumber!=''])>0 and $OPACItemLocation!='library'">
                     <span class="CallNumberAndLabel">
                     <span class="LabelCallNumber">
