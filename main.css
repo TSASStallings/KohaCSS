@@ -604,7 +604,7 @@ a[href*="rss"] img,
     display: none;
 }
 
-.results_summary.availability.LabelCallNumber {
+.LabelCallNumber {
     display: none;
 }
 
