@@ -529,6 +529,11 @@ a:visited {
     margin: 0 !important;
 }
 
+/* === Remove Did you mean === */
+#didyoumean {
+    display: none;
+}
+
 /* === RSS ICON - Move it inline === */
 .rss-icon,
 a.rssfeed,
@@ -656,16 +661,22 @@ a[href*="rss"] img,
     display: none;
 }
 
-/* === SUGGESTIONS LINK - Mustard accent === */
-.suggestions a,
+/* === SUGGESTIONS === */
+.suggestion a,
 a[href*="suggestion"] {
     color: #094074;
-    border-bottom: 2px solid #ffdd4a;
     padding-bottom: 2px;
 }
 
-.suggestions a:hover {
-    color: #ad343e;
+.suggestion {
+    border-radius: 12px;
+    background-color: #fffbea;
+    border-color: #ffdd4a;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5em;
+    text-align: left;
 }
 
 /* === SORT DROPDOWN === */
