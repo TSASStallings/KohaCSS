@@ -554,7 +554,7 @@ a[href*="rss"] img,
 .searchresults .record .author,
 .searchresults .record .resource_list {
     margin: 0.5rem 0;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 /* Availability */
@@ -647,7 +647,8 @@ a[href*="suggestion"] {
 /* === CLEANER RESULTS - Hide verbose metadata === */
 /* Edition */
 .results_summary.edition,
-.results_summary.rda264 {
+.results_summary.rda264,
+.results_summary.language {
     display: none;
 }
 
