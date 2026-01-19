@@ -1586,14 +1586,28 @@
         <xsl:param name="OPACItemLocation"/>
         <xsl:if test="count($items)>0">
             <span><xsl:attribute name="class"><xsl:value-of select="$class_block"/></xsl:attribute>
-                <!-- TSAS: Spelled-out count with copy/copies, no branch name -->
+                <!-- TSAS: Spelled-out count with copy/copies, status-aware -->
                 <span class="availability-count">
                     <xsl:call-template name="numberToWords">
                         <xsl:with-param name="number" select="count($items)"/>
                     </xsl:call-template>
                     <xsl:choose>
-                        <xsl:when test="count($items) = 1"> copy available</xsl:when>
-                        <xsl:otherwise> copies available</xsl:otherwise>
+                        <!-- Unavailable items: show status (Checked out, Lost, etc.) -->
+                        <xsl:when test="starts-with($class_block, 'unavailable')">
+                            <xsl:choose>
+                                <xsl:when test="count($items) = 1"> copy </xsl:when>
+                                <xsl:otherwise> copies </xsl:otherwise>
+                            </xsl:choose>
+                            <!-- Extract status from class_block (e.g., "unavailable_Checked out" -> "Checked out") -->
+                            <xsl:value-of select="substring-after($class_block, 'unavailable_')"/>
+                        </xsl:when>
+                        <!-- Available items -->
+                        <xsl:otherwise>
+                            <xsl:choose>
+                                <xsl:when test="count($items) = 1"> copy available</xsl:when>
+                                <xsl:otherwise> copies available</xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:otherwise>
                     </xsl:choose>
                 </span>
                 <xsl:if test="$max>0 and count($items[items:itemcallnumber!=''])>0 and $OPACItemLocation!='library'">
@@ -1649,7 +1663,6 @@
                     </span>
                     </span>
                 </xsl:if>
-                <xsl:text>. </xsl:text>
             </span>
         </xsl:if>
     </xsl:template>
