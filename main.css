@@ -351,34 +351,35 @@ footer a:hover {
     min-width: 270px;
 }
 
+#search-facets {
+    border: none;
+}
+
 #search-facets h2,
 #search-facets h3 {
     font-family: "Montserrat", sans-serif;
     color: #094074;
     border-bottom: 2px solid #ad343e;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
 }
 
+#search-facets h2,
 #search-facets legend {
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #094074;
-    margin-bottom: 0.75rem;
     border-bottom: none;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
 
+#search-facets h3,
 #search-facets .facet-label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #3c6997;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #ad343e;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
@@ -390,17 +391,12 @@ footer a:hover {
 #search-facets ul {
     padding-left: 0;
     list-style: none;
-    margin-bottom: 0;
+    margin-bottom: 0.75rem;
 }
 
-#search-facets li {
-    padding: 0.5rem 0;
+#search-facets li li {
+    padding: 0.1rem 0;
     line-height: 1.6;
-    border-bottom: 1px solid #e1e7f1;
-}
-
-#search-facets li:last-child {
-    border-bottom: none;
 }
 
 #search-facets a {
