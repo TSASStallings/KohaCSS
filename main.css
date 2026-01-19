@@ -263,6 +263,9 @@ body#opac-main ul.breadcrumb {
     display: inline;
 }
 
+.table td.bibliocol {
+    padding-top: 23px;
+}
 /* === CARDS & PANELS (match Educenter cards) === */
 .panel,
 .card {
@@ -596,11 +599,11 @@ a[href*="rss"] img,
     font-size: 0.95rem;
 }
 
-.results_summary.availability.label {
+.label {
     display: none;
 }
 
-.results_summary.availability.ItemBranch {
+.ItemBranch {
     display: none;
 }
 
@@ -609,8 +612,9 @@ a[href*="rss"] img,
 }
 
 /* Action buttons spacing */
-.searchresults .record .actions {
+.searchresults .actions {
     margin-top: 0.75rem;
+    display: inline;
 }
 
 /* Action links */
