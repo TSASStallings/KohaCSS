@@ -112,10 +112,18 @@ h6 {
     color: #094074;
 }
 
-h1 { font-size: 45px; }
-h2 { font-size: 30px; }
-h3 { font-size: 20px; }
-h4 { font-size: 18px; }
+h1 {
+    font-size: 45px;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 18px;
+}
 
 /* === LINKS - Blue primary, light blue visited === */
 a {
@@ -343,11 +351,14 @@ footer a:hover {
     min-width: 270px;
 }
 
-#search-facets {
-    border: none;
+#search-facets h2,
+#search-facets h3 {
+    font-family: "Montserrat", sans-serif;
+    color: #094074;
+    border-bottom: 2px solid #ad343e;
+    padding-bottom: 0.5rem;
 }
 
-#search-facets h2,
 #search-facets legend {
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -359,7 +370,6 @@ footer a:hover {
     font-weight: 600;
 }
 
-#search-facets h3,
 #search-facets .facet-label {
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -642,9 +652,15 @@ a[href*="suggestion"] {
 
 /* === RESPONSIVE === */
 @media (max-width: 767px) {
-    h1 { font-size: 35px; }
-    h2 { font-size: 25px; }
-    h3 { font-size: 18px; }
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    h3 {
+        font-size: 18px;
+    }
 
     #logo {
         background-size: 50px;
