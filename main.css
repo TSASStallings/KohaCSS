@@ -658,8 +658,19 @@ a[href*="suggestion"] {
 .results_summary.publisher,
 .results_summary.publisher_number,
 .results_summary.online_resources,
-.hint {
+.hint,
+.results_summary.label {
     display: none;
+}
+
+.fa.fa-rss.rsssearchicon {
+    font-size: 120%;
+}
+
+.searchresults h1,
+#numresults {
+    margin-left: 15px;
+    font-size: 30px;
 }
 
 /* Other title entries */
