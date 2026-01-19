@@ -429,12 +429,16 @@ a:visited {
 }
 
 /* === SIDEBAR - Match main site course filters === */
-#facet-container {
+#facetcontainer {
     background: #f7f9fc;
     border: 1px solid #e1e7f1;
     border-radius: 12px;
     padding: 2rem;
-    min-width: 280px;
+    min-width: 270px;
+}
+
+#search-facets {
+    border: none;
 }
 
 #search-facets h2,
@@ -592,6 +596,18 @@ a[href*="rss"] img,
     font-size: 0.95rem;
 }
 
+.results_summary.availability.label {
+    display: none;
+}
+
+.results_summary.availability.ItemBranch {
+    display: none;
+}
+
+.results_summary.availability.LabelCallNumber {
+    display: none;
+}
+
 /* Action buttons spacing */
 .searchresults .record .actions {
     margin-top: 0.75rem;
@@ -629,6 +645,10 @@ a[href*="rss"] img,
 
 /* Hide non-functional refine toggle */
 .menu-collapse-toggle {
+    display: none;
+}
+
+#top-pages {
     display: none;
 }
 
