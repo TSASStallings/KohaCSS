@@ -612,3 +612,20 @@ a[href*="suggestion"] {
 .title_medium {
     display: none;
 }
+
+/* === CLEANER RESULTS - Hide verbose metadata === */
+/* Edition */
+.results_summary.edition {
+    display: none;
+}
+
+/* Publisher info */
+.results_summary.publisher,
+.results_summary.publisher_number {
+    display: none;
+}
+
+/* Other title entries */
+.results_summary.other_title {
+    display: none;
+}
