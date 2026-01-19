@@ -601,3 +601,14 @@ a[href*="suggestion"] {
     font-size: 0.75rem;
     color: #82b1d4;
 }
+
+/* === CLEANER TITLE DISPLAY === */
+/* Hide statement of responsibility (245$c) - e.g., "by John Smith" after title */
+.title_resp_stmt {
+    display: none;
+}
+
+/* Hide medium designation (245$h) - e.g., "[electronic resource]" */
+.title_medium {
+    display: none;
+}
