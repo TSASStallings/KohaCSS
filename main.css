@@ -598,8 +598,7 @@ a[href*="suggestion"] {
 /* === IMAGE ATTRIBUTION === */
 .results_summary.image,
 .image-source {
-    font-size: 0.75rem;
-    color: #82b1d4;
+    display: none;
 }
 
 /* === CLEANER TITLE DISPLAY === */
@@ -615,7 +614,8 @@ a[href*="suggestion"] {
 
 /* === CLEANER RESULTS - Hide verbose metadata === */
 /* Edition */
-.results_summary.edition {
+.results_summary.edition,
+.results_summary.rda264 {
     display: none;
 }
 
@@ -628,4 +628,8 @@ a[href*="suggestion"] {
 /* Other title entries */
 .results_summary.other_title {
     display: none;
+}
+
+a.title {
+    font-size: 150%;
 }
