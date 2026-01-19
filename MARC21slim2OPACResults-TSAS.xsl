@@ -1590,7 +1590,34 @@
                         <xsl:if test="$OPACItemLocation='ccode'">
                             <strong><xsl:value-of select="concat(items:ccode,' ')"/></strong>
                         </xsl:if>
-                        <xsl:value-of select="items:itemcallnumber"/>
+                        <!-- TSAS: Color-coded call number based on collection -->
+                        <span>
+                            <xsl:attribute name="style">
+                                <xsl:choose>
+                                    <!-- SciFi: Gold -->
+                                    <xsl:when test="contains(items:ccode, 'SciFi') or contains(items:ccode, 'SCIFI') or contains(items:ccode, 'Sci-Fi')">
+                                        <xsl:text>color: rgb(255, 173, 5); font-weight: 700;</xsl:text>
+                                    </xsl:when>
+                                    <!-- Mystery: Yellow -->
+                                    <xsl:when test="contains(items:ccode, 'Mys') or contains(items:ccode, 'MYS') or contains(items:ccode, 'Mystery')">
+                                        <xsl:text>color: #FCFF4B; font-weight: 700; text-shadow: 0 0 2px #000;</xsl:text>
+                                    </xsl:when>
+                                    <!-- Graphic Novel: Burgundy -->
+                                    <xsl:when test="contains(items:ccode, 'GN') or contains(items:ccode, 'Graphic')">
+                                        <xsl:text>color: #982649; font-weight: 700;</xsl:text>
+                                    </xsl:when>
+                                    <!-- Fiction: Carolina Blue -->
+                                    <xsl:when test="contains(items:ccode, 'Fic') or contains(items:ccode, 'FIC') or contains(items:ccode, 'Fiction')">
+                                        <xsl:text>color: rgb(130, 177, 212); font-weight: 700;</xsl:text>
+                                    </xsl:when>
+                                    <!-- Non-fiction (default for anything else): Deep Blue -->
+                                    <xsl:otherwise>
+                                        <xsl:text>color: rgb(4, 67, 137); font-weight: 700;</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:attribute>
+                            <xsl:value-of select="items:itemcallnumber"/>
+                        </span>
                         <xsl:if test="position()!=last()">
                             <xsl:text>, </xsl:text>
                         </xsl:if>
