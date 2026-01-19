@@ -9,7 +9,15 @@
 /* Override Bootstrap defaults */
 :root {
     --bs-body-font-family: "Poppins", sans-serif;
-    --bs-table-striped-bg: #f8f8f8;
+}
+
+.table,
+.table-striped {
+    --bs-table-striped-bg: #f8f8f8 !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #f8f8f8 !important;
 }
 
 /* === LOGO === */
@@ -82,7 +90,14 @@ body::before {
 }
 
 /* === TYPOGRAPHY (match main site) === */
-body {
+body,
+.fonts-loaded body,
+.fonts-loaded button,
+.fonts-loaded input,
+.fonts-loaded optgroup,
+.fonts-loaded option,
+.fonts-loaded select,
+.fonts-loaded textarea {
     font-family: "Poppins", sans-serif !important;
     font-size: 15px;
     line-height: 1.9;
@@ -241,6 +256,11 @@ body#opac-main ul.breadcrumb {
 
 .title a:hover {
     color: #ad343e;
+}
+
+.searchresults .actions,
+#selection_ops {
+    display: inline;
 }
 
 /* === CARDS & PANELS (match Educenter cards) === */
@@ -409,7 +429,7 @@ a:visited {
 }
 
 /* === SIDEBAR - Match main site course filters === */
-#search-facets {
+#facet-container {
     background: #f7f9fc;
     border: 1px solid #e1e7f1;
     border-radius: 12px;
