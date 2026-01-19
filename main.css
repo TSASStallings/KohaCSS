@@ -368,6 +368,7 @@ footer a:hover {
     margin-top: 2rem;
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ad343e;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
@@ -379,11 +380,13 @@ footer a:hover {
 #search-facets ul {
     padding-left: 0;
     list-style: none;
+    margin-bottom: 0;
 }
 
 #search-facets li {
     padding: 0.5rem 0;
     line-height: 1.6;
+    border-bottom: 1px solid #e1e7f1;
 }
 
 #search-facets li:last-child {
@@ -625,37 +628,15 @@ a[href*="suggestion"] {
 }
 
 /* === COLLECTION COLOR CODING === */
-/* Science Fiction - Gold */
-.CallNumber:has-text("SciFi"),
-span.CallNumber[class*="SciFi"] {
-    color: rgb(255, 173, 5);
-    font-weight: 700;
-}
-
-/* Fiction - Carolina Blue */
-.CallNumber:has-text("Fic"),
-span.CallNumber[class*="Fic"] {
-    color: rgb(130, 177, 212);
-    font-weight: 700;
-}
-
-/* Mystery - Yellow */
-.CallNumber:has-text("Mys"),
-span.CallNumber[class*="Mys"] {
-    color: #FCFF4B;
-    font-weight: 700;
-}
-
-/* Graphic Novels - Burgundy */
-.CallNumber:has-text("GN"),
-span.CallNumber[class*="GN"] {
-    color: #982649;
-    font-weight: 700;
-}
-
-/* Non-fiction - Deep Blue */
-.CallNumber:not(:has-text("SciFi")):not(:has-text("Fic")):not(:has-text("Mys")):not(:has-text("GN")) {
-    color: rgb(4, 67, 137);
+/* NOTE: Text-based selection requires JavaScript in OPACUserJS.
+   Colors defined here for reference:
+   - SciFi: rgb(255, 173, 5) - Gold
+   - Fic: rgb(130, 177, 212) - Carolina Blue
+   - Mys: #FCFF4B - Yellow
+   - GN: #982649 - Burgundy
+   - Non-fiction: rgb(4, 67, 137) - Deep Blue
+*/
+.CallNumber {
     font-weight: 700;
 }
 
