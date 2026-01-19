@@ -1,7 +1,7 @@
 /* ============================================
      TSAS Library Catalog
      Matches Educenter Hugo Theme / Bootstrap 4.4.1
-     ============================================ */
+   ============================================ */
 
 /* === FONTS (match main site) === */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
@@ -53,6 +53,7 @@
 /* === HEADER (Indigo Dye - matches footer) === */
 #header-region {
     background: #3c6997 !important;
+    margin-top: 4px;
 }
 
 #header-region .navbar {
@@ -70,10 +71,6 @@ body::before {
     left: 0;
     right: 0;
     z-index: 9999;
-}
-
-#header-region {
-    margin-top: 4px;
 }
 
 #header-region .nav-link,
@@ -115,17 +112,24 @@ h6 {
     color: #094074;
 }
 
-h1 {
-    font-size: 45px;
+h1 { font-size: 45px; }
+h2 { font-size: 30px; }
+h3 { font-size: 20px; }
+h4 { font-size: 18px; }
+
+/* === LINKS - Blue primary, light blue visited === */
+a {
+    color: #094074;
+    transition: all 0.3s ease;
 }
-h2 {
-    font-size: 30px;
+
+a:hover {
+    color: #3c6997;
+    text-decoration: none;
 }
-h3 {
-    font-size: 20px;
-}
-h4 {
-    font-size: 18px;
+
+a:visited {
+    color: #82b1d4;
 }
 
 /* === SEARCH AREA === */
@@ -146,14 +150,26 @@ h4 {
     font-weight: 500;
     text-transform: capitalize;
     transition: all 0.3s ease;
-    color: #e1e7f1;
+    color: #e1e7f1 !important;
 }
 
 #searchsubmit:hover,
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     background: #8a2a32 !important;
     border-color: #8a2a32 !important;
     transform: translateY(-2px);
+    box-shadow: none;
+}
+
+/* Icons in primary buttons - white/bone */
+.btn-primary i,
+.btn-primary .fa,
+.btn-primary [class^="fa-"],
+#scrolltocontent i,
+.btn-danger i,
+.btn-danger .fa {
+    color: #e1e7f1 !important;
 }
 
 .form-control {
@@ -167,17 +183,6 @@ h4 {
     border-color: #ffdd4a;
     box-shadow: 0 0 0 3px rgba(255, 221, 74, 0.35);
     outline: none;
-}
-
-/* === LINKS === */
-a {
-    color: #ad343e;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #8a2a32;
-    text-decoration: none;
 }
 
 #moresearches a {
@@ -195,18 +200,6 @@ a:hover {
     padding: 5px 10px;
     font-weight: 500;
     transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background: #ad343e !important;
-    border-color: #ad343e !important;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    background: #8a2a32 !important;
-    border-color: #8a2a32 !important;
-    box-shadow: none;
 }
 
 .btn-secondary {
@@ -241,32 +234,6 @@ body#opac-main ul.breadcrumb {
     display: none;
 }
 
-/* === RESULTS & CONTENT === */
-.record,
-.bibliodetail {
-    border-left: 3px solid #ad343e;
-    padding-left: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.title a {
-    font-family: "Montserrat", sans-serif;
-    color: #094074;
-    font-weight: 600;
-}
-
-.title a:hover {
-    color: #ad343e;
-}
-
-.searchresults .actions,
-#selection_ops {
-    display: inline;
-}
-
-.table td.bibliocol {
-    padding-top: 23px;
-}
 /* === CARDS & PANELS (match Educenter cards) === */
 .panel,
 .card {
@@ -281,26 +248,6 @@ body#opac-main ul.breadcrumb {
     border-bottom: 2px solid #82b1d4;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-}
-
-/* === FACETS === */
-#search-facets h2,
-#search-facets h3 {
-    font-family: "Montserrat", sans-serif;
-    color: #094074;
-    border-bottom: 2px solid #ad343e;
-    padding-bottom: 0.5rem;
-}
-
-/* === PAGINATION === */
-.pagination .page-link {
-    color: #094074;
-    border-radius: 0;
-}
-
-.pagination .page-item.active .page-link {
-    background: #ad343e;
-    border-color: #ad343e;
 }
 
 /* === DROPDOWN MENUS === */
@@ -331,6 +278,10 @@ body#opac-main ul.breadcrumb {
 
 .table-striped tbody tr:nth-of-type(odd) {
     background: #f8f8f8;
+}
+
+.table td.bibliocol {
+    padding-top: 23px;
 }
 
 /* === FLIPSTER CAROUSEL === */
@@ -379,58 +330,9 @@ footer a:hover {
     color: #fff;
 }
 
-/* === RESPONSIVE (match Educenter breakpoints) === */
-@media (max-width: 767px) {
-    h1 {
-        font-size: 35px;
-    }
-    h2 {
-        font-size: 25px;
-    }
-    h3 {
-        font-size: 18px;
-    }
-
-    #logo {
-        background-size: 50px;
-        height: 55px;
-        width: 50px;
-    }
-
-    #logo a {
-        padding: 55px 0 0;
-        width: 50px;
-    }
-}
-
 /* ============================================
-   SEARCH RESULTS PAGE FIXES
+   SEARCH RESULTS PAGE
    ============================================ */
-
-/* === LINKS - Blue primary, light blue visited === */
-a {
-    color: #094074;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #3c6997;
-    text-decoration: none;
-}
-
-a:visited {
-    color: #82b1d4;
-}
-
-/* Title links stay dark, use cardinal on hover */
-.title a,
-.title a:visited {
-    color: #094074;
-}
-
-.title a:hover {
-    color: #ad343e;
-}
 
 /* === SIDEBAR - Match main site course filters === */
 #facetcontainer {
@@ -502,7 +404,7 @@ a:visited {
     font-size: 0.8rem;
 }
 
-/* === RESULTS TOOLBAR - Fix spacing === */
+/* === RESULTS TOOLBAR === */
 #toolbar,
 .results-controls {
     display: flex;
@@ -516,8 +418,6 @@ a:visited {
     padding: 0.5rem 1rem;
 }
 
-/* Unhighlight/Select row */
-.searchresults .actions,
 #selection_ops {
     display: flex;
     flex-wrap: wrap;
@@ -530,12 +430,16 @@ a:visited {
     margin: 0 !important;
 }
 
-/* === Remove Did you mean === */
+/* === Did you mean - hidden === */
 #didyoumean {
     display: none;
 }
 
-/* === RSS ICON - Move it inline === */
+/* === RSS ICON === */
+.fa.fa-rss.rsssearchicon {
+    font-size: 120%;
+}
+
 .rss-icon,
 a.rssfeed,
 a[href*="rss"] img,
@@ -547,14 +451,17 @@ a[href*="rss"] img,
     vertical-align: middle;
 }
 
+/* === RESULTS HEADER === */
 .searchresults h1,
 #numresults {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-left: 15px;
+    font-size: 30px;
 }
 
-/* === RESULTS LIST - Berlin-style spacing === */
+/* === RESULTS LIST === */
 .searchresults {
     line-height: 1.6;
 }
@@ -564,6 +471,7 @@ a[href*="rss"] img,
     margin-bottom: 0;
     border: none;
     border-bottom: 1px solid #e1e7f1;
+    border-left: none;
     border-radius: 0;
     background: #fff;
 }
@@ -580,13 +488,23 @@ a[href*="rss"] img,
     font-size: 0.95rem;
 }
 
-/* Title styling - prominent but not huge */
-.searchresults .record a.title {
+/* Title styling */
+a.title {
+    font-size: 150%;
     display: block;
     margin-bottom: 0.4rem;
     line-height: 1.4;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
+    color: #094074;
+}
+
+a.title:visited {
+    color: #094074;
+}
+
+a.title:hover {
+    color: #ad343e;
 }
 
 /* Author line */
@@ -605,25 +523,19 @@ a[href*="rss"] img,
     font-size: 0.95rem;
 }
 
-.label {
-    display: none;
-}
-
-.ItemBranch {
-    display: none;
-}
-
+/* Hide verbose labels */
+.results_summary .label,
+.ItemBranch,
 .LabelCallNumber {
     display: none;
 }
 
-/* Action buttons spacing */
+/* Action buttons */
 .searchresults .actions {
     margin-top: 0.75rem;
     display: inline;
 }
 
-/* Action links */
 .searchresults .actions a,
 .searchresults .btn-link {
     color: #094074;
@@ -634,10 +546,11 @@ a[href*="rss"] img,
     color: #ad343e;
 }
 
-/* === PAGINATION - Use indigo === */
+/* === PAGINATION === */
 .pagination .page-link {
     color: #094074;
     border-color: #e1e7f1;
+    border-radius: 0;
 }
 
 .pagination .page-item.active .page-link,
@@ -653,9 +566,15 @@ a[href*="rss"] img,
     color: #ad343e;
 }
 
-/* Hide non-functional refine toggle */
+/* === REFINE SEARCH TOGGLE - Mobile only === */
 .menu-collapse-toggle {
     display: none;
+}
+
+@media (max-width: 991px) {
+    .menu-collapse-toggle {
+        display: block;
+    }
 }
 
 #top-pages {
@@ -673,7 +592,6 @@ a[href*="suggestion"] {
     border-radius: 12px;
     background-color: #fffbea;
     border-color: #ffdd4a;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     padding: 0.5em;
@@ -689,51 +607,72 @@ a[href*="suggestion"] {
     color: #094074;
 }
 
-/* === IMAGE ATTRIBUTION === */
+/* === HIDE VERBOSE METADATA === */
 .results_summary.image,
-.image-source {
-    display: none;
-}
-
-/* === CLEANER TITLE DISPLAY === */
-/* Hide statement of responsibility (245$c) - e.g., "by John Smith" after title */
-.title_resp_stmt {
-    display: none;
-}
-
-/* Hide medium designation (245$h) - e.g., "[electronic resource]" */
-.title_medium {
-    display: none;
-}
-
-/* === CLEANER RESULTS - Hide verbose metadata === */
-/* Edition */
+.image-source,
+.title_resp_stmt,
+.title_medium,
 .results_summary.edition,
 .results_summary.rda264,
 .results_summary.languages,
 .results_summary.publisher,
 .results_summary.publisher_number,
 .results_summary.online_resources,
-.hint,
-.results_summary.label {
+.results_summary.other_title,
+.results_summary.label,
+.hint {
     display: none;
 }
 
-.fa.fa-rss.rsssearchicon {
-    font-size: 120%;
+/* === COLLECTION COLOR CODING === */
+/* Science Fiction - Gold */
+.CallNumber:has-text("SciFi"),
+span.CallNumber[class*="SciFi"] {
+    color: rgb(255, 173, 5);
+    font-weight: 700;
 }
 
-.searchresults h1,
-#numresults {
-    margin-left: 15px;
-    font-size: 30px;
+/* Fiction - Carolina Blue */
+.CallNumber:has-text("Fic"),
+span.CallNumber[class*="Fic"] {
+    color: rgb(130, 177, 212);
+    font-weight: 700;
 }
 
-/* Other title entries */
-.results_summary.other_title {
-    display: none;
+/* Mystery - Yellow */
+.CallNumber:has-text("Mys"),
+span.CallNumber[class*="Mys"] {
+    color: #FCFF4B;
+    font-weight: 700;
 }
 
-a.title {
-    font-size: 150%;
+/* Graphic Novels - Burgundy */
+.CallNumber:has-text("GN"),
+span.CallNumber[class*="GN"] {
+    color: #982649;
+    font-weight: 700;
+}
+
+/* Non-fiction - Deep Blue */
+.CallNumber:not(:has-text("SciFi")):not(:has-text("Fic")):not(:has-text("Mys")):not(:has-text("GN")) {
+    color: rgb(4, 67, 137);
+    font-weight: 700;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 767px) {
+    h1 { font-size: 35px; }
+    h2 { font-size: 25px; }
+    h3 { font-size: 18px; }
+
+    #logo {
+        background-size: 50px;
+        height: 55px;
+        width: 50px;
+    }
+
+    #logo a {
+        padding: 55px 0 0;
+        width: 50px;
+    }
 }
