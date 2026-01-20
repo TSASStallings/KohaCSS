@@ -68,6 +68,13 @@ label,
 }
 
 /* === HEADER (Indigo Dye - matches footer) === */
+.main {
+    margin: 0;
+    padding: 0;
+}
+.col {
+    padding: 0;
+}
 #header-region {
     background: #3c6997 !important;
     margin-top: 4px;
@@ -93,9 +100,11 @@ body::before {
 #header-region .nav-link,
 #header-region a {
     color: rgba(255, 255, 255, 0.9) !important;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     transition: all 0.3s ease;
+    font-size: 1.5em;
+    text-transform: uppercase;
 }
 
 #header-region .nav-link:hover,
