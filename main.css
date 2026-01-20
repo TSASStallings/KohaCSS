@@ -183,6 +183,14 @@ a:visited {
     box-sizing: border-box;
 }
 
+/* Center the search button icon */
+#searchsubmit {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px !important;
+}
+
 #searchsubmit,
 .btn-primary {
     background: #ad343e !important;
