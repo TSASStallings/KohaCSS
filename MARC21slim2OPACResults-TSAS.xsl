@@ -1631,11 +1631,11 @@
                                 <xsl:choose>
                                     <!-- SciFi: Gold -->
                                     <xsl:when test="contains(items:ccode, 'SciFi') or contains(items:ccode, 'SCIFI') or contains(items:ccode, 'Sci-Fi')">
-                                        <xsl:text>color: rgb(255, 173, 5); font-weight: 700;</xsl:text>
+                                        <xsl:text>color: #ffad05; font-weight: 700;</xsl:text>
                                     </xsl:when>
                                     <!-- Mystery: Yellow -->
                                     <xsl:when test="contains(items:ccode, 'Mys') or contains(items:ccode, 'MYS') or contains(items:ccode, 'Mystery')">
-                                        <xsl:text>color: #FCFF4B; font-weight: 700; text-shadow: 0 0 2px #000;</xsl:text>
+                                        <xsl:text>color: #fcff4b; font-weight: 700; text-shadow: 0 0 2px #000;</xsl:text>
                                     </xsl:when>
                                     <!-- Graphic Novel: Burgundy -->
                                     <xsl:when test="contains(items:ccode, 'GN') or contains(items:ccode, 'Graphic')">
@@ -1643,11 +1643,11 @@
                                     </xsl:when>
                                     <!-- Fiction: Carolina Blue -->
                                     <xsl:when test="contains(items:ccode, 'Fic') or contains(items:ccode, 'FIC') or contains(items:ccode, 'Fiction')">
-                                        <xsl:text>color: rgb(130, 177, 212); font-weight: 700;</xsl:text>
+                                        <xsl:text>color: #82b1d4; font-weight: 700;</xsl:text>
                                     </xsl:when>
                                     <!-- Non-fiction (default for anything else): Deep Blue -->
                                     <xsl:otherwise>
-                                        <xsl:text>color: rgb(4, 67, 137); font-weight: 700;</xsl:text>
+                                        <xsl:text>color: #094074; font-weight: 700;</xsl:text>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:attribute>

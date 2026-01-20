@@ -387,7 +387,7 @@ footer a:hover {
 
 /* === SIDEBAR - Match main site course filters === */
 #facetcontainer {
-    background: #f7f9fc;
+    background: #f8f9fe;
     border: 1px solid #e1e7f1;
     border-radius: 12px;
     padding: 2rem;
@@ -614,7 +614,7 @@ a.title:hover {
 }
 
 .pagination .page-link:hover {
-    background: #f7f9fc;
+    background: #f8f9fe;
     color: #ad343e;
 }
 
@@ -709,13 +709,12 @@ a[href*="suggestion"] {
 }
 
 /* === COLLECTION COLOR CODING === */
-/* NOTE: Text-based selection requires JavaScript in OPACUserJS.
-   Colors defined here for reference:
-   - SciFi: rgb(255, 173, 5) - Gold
-   - Fic: rgb(130, 177, 212) - Carolina Blue
-   - Mys: #FCFF4B - Yellow
+/* NOTE: Colors applied via XSLT inline styles.
+   - SciFi: #ffad05 - Gold
+   - Fic: #82b1d4 - Carolina Blue
+   - Mys: #fcff4b - Yellow
    - GN: #982649 - Burgundy
-   - Non-fiction: rgb(4, 67, 137) - Deep Blue
+   - Non-fiction: #094074 - Deep Blue
 */
 .CallNumber {
     font-weight: 700;
