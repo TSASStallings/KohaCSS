@@ -592,14 +592,46 @@ a.title:hover {
     color: #ad343e;
 }
 
-/* === REFINE SEARCH TOGGLE - Mobile only === */
+/* === REFINE SEARCH TOGGLE === */
+/* Desktop: plain heading style */
 .menu-collapse-toggle {
-    display: none;
+    display: block;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #094074 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: default;
+    pointer-events: none;
 }
 
+.menu-collapse-toggle a {
+    color: #094074 !important;
+    text-decoration: none !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Mobile: restore button styling */
 @media (max-width: 991px) {
     .menu-collapse-toggle {
-        display: block;
+        background: #3c6997 !important;
+        border: 1px solid #3c6997 !important;
+        padding: 0.75rem 1rem !important;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
+    .menu-collapse-toggle a {
+        color: #fff !important;
+        pointer-events: auto;
+        cursor: pointer;
     }
 }
 
