@@ -1587,7 +1587,9 @@
         <xsl:if test="count($items)>0">
             <!-- TSAS: Simplified availability display -->
             <!-- Format: "# item/items [status] in [Collection] under the author's last name" -->
-            <xsl:variable name="firstCcode" select="$items[1]/items:ccode"/>
+            <xsl:variable name="firstCcode" select="normalize-space($items[1]/items:ccode)"/>
+            <!-- DEBUG: output ccode value -->
+            <span style="display:none;">[ccode:<xsl:value-of select="$firstCcode"/>]</span>
             <span><xsl:attribute name="class"><xsl:value-of select="$class_block"/></xsl:attribute>
                 <span class="availability-count">
                     <!-- Count -->
