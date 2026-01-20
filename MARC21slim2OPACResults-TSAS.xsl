@@ -1409,8 +1409,9 @@
                         </xsl:for-each>
                     </span></xsl:if>
 
+                    <!-- TSAS: Only show unavailable if NO items are available -->
                     <!-- Availability part 3: UNAVAILABLE ITEMS (see also pref Reference_NFL_Statuses); status reallynotforloan or status other -->
-                    <xsl:if test="number($sumAv+$sumRef) &lt; number($itemcount)"><span class="unavailable">
+                    <xsl:if test="$sumAv = 0 and $sumRef = 0"><span class="unavailable">
                         <xsl:variable name="unavailable_items" select="key('item-by-status', 'reallynotforloan')|key('item-by-status', 'other')"/>
                         <xsl:choose>
                             <xsl:when test="$OPACResultsUnavailableGroupingBy='branch'">
@@ -1608,37 +1609,52 @@
                             <xsl:text>available</xsl:text>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <!-- " in [Collection]" with color -->
-                    <xsl:text> in </xsl:text>
+                    <!-- Preposition: "in" for available, "from" for unavailable -->
+                    <xsl:choose>
+                        <xsl:when test="starts-with($class_block, 'unavailable')">
+                            <xsl:text> from </xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> in </xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <!-- Collection name with color -->
                     <xsl:choose>
                         <!-- Science Fiction: Gold -->
                         <xsl:when test="contains($firstCcode, 'cience fiction')">
-                            <span style="color: #ffad05; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
-                            <xsl:text> under the author's last name</xsl:text>
+                            <span style="color: #ffad05; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
                         <!-- Fiction: Carolina Blue -->
                         <xsl:when test="$firstCcode = 'Fiction'">
-                            <span style="color: #82b1d4; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
-                            <xsl:text> under the author's last name</xsl:text>
+                            <span style="color: #82b1d4; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
                         <!-- Mystery: Yellow -->
                         <xsl:when test="contains($firstCcode, 'ystery')">
-                            <span style="color: #fcff4b; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
-                            <xsl:text> under the author's last name</xsl:text>
+                            <span style="color: #fcff4b; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Graphic Novels: Burgundy -->
+                        <!-- Graphic Novels: Pink -->
                         <xsl:when test="contains($firstCcode, 'raphic')">
-                            <span style="color: #982649; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
-                            <xsl:text> under the author's last name</xsl:text>
+                            <span style="color: #d43667; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Non-Fiction: Deep Blue -->
+                        <!-- Non-Fiction: Bright Blue -->
                         <xsl:when test="contains($firstCcode, 'on-fiction') or contains($firstCcode, 'onfiction')">
-                            <span style="color: #094074; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
-                            <xsl:text> by call number</xsl:text>
+                            <span style="color: #1372cc; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
                         <!-- Default/unknown -->
                         <xsl:otherwise>
                             <span style="color: #094074; font-weight: 700;">the library</span>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <!-- Location hint: different for available vs unavailable -->
+                    <xsl:choose>
+                        <xsl:when test="starts-with($class_block, 'unavailable')">
+                            <xsl:text>. Use the button below to request a hold.</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="contains($firstCcode, 'on-fiction') or contains($firstCcode, 'onfiction')">
+                            <xsl:text> by call number</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> under the author's last name</xsl:text>
                         </xsl:otherwise>
                     </xsl:choose>
                 </span>
