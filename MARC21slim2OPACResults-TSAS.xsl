@@ -1613,27 +1613,27 @@
                     <xsl:choose>
                         <!-- Science Fiction: Gold -->
                         <xsl:when test="contains($firstCcode, 'cience fiction')">
-                            <span style="color: #ffad05; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
+                            <span style="color: #ffad05; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
                         <!-- Fiction: Carolina Blue -->
                         <xsl:when test="$firstCcode = 'Fiction'">
-                            <span style="color: #82b1d4; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
+                            <span style="color: #82b1d4; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
                         <!-- Mystery: Yellow -->
                         <xsl:when test="contains($firstCcode, 'ystery')">
-                            <span style="color: #fcff4b; font-weight: 700; text-shadow: 0 0 2px #000;"><xsl:value-of select="$firstCcode"/></span>
+                            <span style="color: #fcff4b; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
                         <!-- Graphic Novels: Burgundy -->
                         <xsl:when test="contains($firstCcode, 'raphic')">
-                            <span style="color: #982649; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
+                            <span style="color: #982649; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
                         <!-- Non-Fiction: Deep Blue -->
                         <xsl:when test="contains($firstCcode, 'on-fiction') or contains($firstCcode, 'onfiction')">
-                            <span style="color: #094074; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
+                            <span style="color: #094074; font-weight: 700; -webkit-text-stroke: 1px #333; text-stroke: 1px #333;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> by call number</xsl:text>
                         </xsl:when>
                         <!-- Default/unknown -->
