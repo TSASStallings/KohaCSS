@@ -11,6 +11,23 @@
     --bs-body-font-family: "Poppins", sans-serif;
 }
 
+/* Montserrat for non-paragraph UI elements */
+.nav-link,
+.navbar-nav,
+.btn,
+.breadcrumb,
+.badge,
+label,
+.label,
+.toolbar,
+.selections-toolbar,
+.sort_by,
+#moresearches,
+.AvailabilityLabel,
+.availability-count {
+    font-family: "Montserrat", sans-serif !important;
+}
+
 .table,
 .table-striped {
     --bs-table-striped-bg: #f8f8f8 !important;
