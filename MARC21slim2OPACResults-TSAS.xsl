@@ -1618,31 +1618,25 @@
                             <xsl:text> in </xsl:text>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <!-- Collection name with color -->
+                    <!-- Collection name with color (styles in main.css) -->
                     <xsl:choose>
-                        <!-- Science Fiction: Gold -->
                         <xsl:when test="contains($firstCcode, 'cience fiction')">
-                            <span style="color: #ffad05; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
+                            <span class="collection-name collection-scifi"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Fiction: Carolina Blue -->
                         <xsl:when test="$firstCcode = 'Fiction'">
-                            <span style="color: #82b1d4; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
+                            <span class="collection-name collection-fiction"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Mystery: Yellow -->
                         <xsl:when test="contains($firstCcode, 'ystery')">
-                            <span style="color: #fcff4b; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
+                            <span class="collection-name collection-mystery"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Graphic Novels: Pink -->
                         <xsl:when test="contains($firstCcode, 'raphic')">
-                            <span style="color: #d43667; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
+                            <span class="collection-name collection-gn"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Non-Fiction: Bright Blue -->
                         <xsl:when test="contains($firstCcode, 'on-fiction') or contains($firstCcode, 'onfiction')">
-                            <span style="color: #1372cc; font-weight: 700; -webkit-text-stroke: 3px #333; text-stroke: 3px #333; paint-order: stroke fill;"><xsl:value-of select="$firstCcode"/></span>
+                            <span class="collection-name collection-nonfiction"><xsl:value-of select="$firstCcode"/></span>
                         </xsl:when>
-                        <!-- Default/unknown -->
                         <xsl:otherwise>
-                            <span style="color: #094074; font-weight: 700;">the library</span>
+                            <span class="collection-name collection-default">the library</span>
                         </xsl:otherwise>
                     </xsl:choose>
                     <!-- Location hint: different for available vs unavailable -->

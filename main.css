@@ -709,13 +709,45 @@ a[href*="suggestion"] {
 }
 
 /* === COLLECTION COLOR CODING === */
-/* NOTE: Colors applied via XSLT inline styles.
-   - SciFi: #ffad05 - Gold
-   - Fic: #82b1d4 - Carolina Blue
-   - Mys: #fcff4b - Yellow
-   - GN: #d43667 - Pink
-   - Non-fiction: #1372cc - Bright Blue
-*/
+/* Base style for all collection names */
+.collection-name {
+    font-weight: 700;
+    -webkit-text-stroke: 3px #333;
+    text-stroke: 3px #333;
+    paint-order: stroke fill;
+}
+
+/* Science Fiction: Gold */
+.collection-scifi {
+    color: #ffad05;
+}
+
+/* Fiction: Carolina Blue */
+.collection-fiction {
+    color: #82b1d4;
+}
+
+/* Mystery: Yellow */
+.collection-mystery {
+    color: #fcff4b;
+}
+
+/* Graphic Novels: Pink */
+.collection-gn {
+    color: #d43667;
+}
+
+/* Non-Fiction: Bright Blue */
+.collection-nonfiction {
+    color: #1372cc;
+}
+
+/* Default/Unknown */
+.collection-default {
+    color: #094074;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+}
 .CallNumber {
     font-weight: 700;
 }
