@@ -1653,6 +1653,9 @@
                         <xsl:when test="contains($firstCcode, 'on-fiction') or contains($firstCcode, 'onfiction')">
                             <xsl:text> by call number</xsl:text>
                         </xsl:when>
+                        <xsl:when test="contains($firstCcode, 'raphic')">
+                            <xsl:text> alphabetically by title</xsl:text>
+                        </xsl:when>
                         <xsl:otherwise>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:otherwise>
