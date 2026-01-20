@@ -1588,8 +1588,6 @@
             <!-- TSAS: Simplified availability display -->
             <!-- Format: "# item/items [status] in [Collection] under the author's last name" -->
             <xsl:variable name="firstCcode" select="normalize-space($items[1]/items:ccode)"/>
-            <!-- DEBUG: output ccode value -->
-            <span style="display:none;">[ccode:<xsl:value-of select="$firstCcode"/>]</span>
             <span><xsl:attribute name="class"><xsl:value-of select="$class_block"/></xsl:attribute>
                 <span class="availability-count">
                     <!-- Count -->
@@ -1613,29 +1611,29 @@
                     <!-- " in [Collection]" with color -->
                     <xsl:text> in </xsl:text>
                     <xsl:choose>
-                        <!-- SCIFI: Gold -->
-                        <xsl:when test="$firstCcode = 'SCIFI'">
-                            <span style="color: #ffad05; font-weight: 700;">Science Fiction, Fantasy</span>
+                        <!-- Science Fiction: Gold -->
+                        <xsl:when test="contains($firstCcode, 'cience fiction')">
+                            <span style="color: #ffad05; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
-                        <!-- FIC: Carolina Blue -->
-                        <xsl:when test="$firstCcode = 'FIC'">
-                            <span style="color: #82b1d4; font-weight: 700;">Fiction</span>
+                        <!-- Fiction: Carolina Blue -->
+                        <xsl:when test="$firstCcode = 'Fiction'">
+                            <span style="color: #82b1d4; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
-                        <!-- MYS: Yellow -->
-                        <xsl:when test="$firstCcode = 'MYS'">
-                            <span style="color: #fcff4b; font-weight: 700; text-shadow: 0 0 2px #000;">Mystery</span>
+                        <!-- Mystery: Yellow -->
+                        <xsl:when test="contains($firstCcode, 'ystery')">
+                            <span style="color: #fcff4b; font-weight: 700; text-shadow: 0 0 2px #000;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
-                        <!-- GN: Burgundy -->
-                        <xsl:when test="$firstCcode = 'GN'">
-                            <span style="color: #982649; font-weight: 700;">Graphic Novels</span>
+                        <!-- Graphic Novels: Burgundy -->
+                        <xsl:when test="contains($firstCcode, 'raphic')">
+                            <span style="color: #982649; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> under the author's last name</xsl:text>
                         </xsl:when>
-                        <!-- NFIC: Deep Blue -->
-                        <xsl:when test="$firstCcode = 'NFIC'">
-                            <span style="color: #094074; font-weight: 700;">Non-Fiction</span>
+                        <!-- Non-Fiction: Deep Blue -->
+                        <xsl:when test="contains($firstCcode, 'on-fiction') or contains($firstCcode, 'onfiction')">
+                            <span style="color: #094074; font-weight: 700;"><xsl:value-of select="$firstCcode"/></span>
                             <xsl:text> by call number</xsl:text>
                         </xsl:when>
                         <!-- Default/unknown -->
