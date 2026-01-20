@@ -1585,84 +1585,63 @@
         <xsl:param name="class_status"/>
         <xsl:param name="OPACItemLocation"/>
         <xsl:if test="count($items)>0">
+            <!-- TSAS: Simplified availability display -->
+            <!-- Format: "# item/items [status] in [Collection] under the author's last name" -->
+            <xsl:variable name="firstCcode" select="$items[1]/items:ccode"/>
             <span><xsl:attribute name="class"><xsl:value-of select="$class_block"/></xsl:attribute>
-                <!-- TSAS: Spelled-out count with copy/copies, status-aware -->
                 <span class="availability-count">
+                    <!-- Count -->
                     <xsl:call-template name="numberToWords">
                         <xsl:with-param name="number" select="count($items)"/>
                     </xsl:call-template>
+                    <!-- item/items -->
                     <xsl:choose>
-                        <!-- Unavailable items: show status (Checked out, Lost, etc.) -->
+                        <xsl:when test="count($items) = 1"> item </xsl:when>
+                        <xsl:otherwise> items </xsl:otherwise>
+                    </xsl:choose>
+                    <!-- Status -->
+                    <xsl:choose>
                         <xsl:when test="starts-with($class_block, 'unavailable')">
-                            <xsl:choose>
-                                <xsl:when test="count($items) = 1"> copy </xsl:when>
-                                <xsl:otherwise> copies </xsl:otherwise>
-                            </xsl:choose>
-                            <!-- Extract status from class_block (e.g., "unavailable_Checked out" -> "Checked out") -->
-                            <xsl:value-of select="substring-after($class_block, 'unavailable_')"/>
+                            <xsl:value-of select="translate(substring-after($class_block, 'unavailable_'), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
                         </xsl:when>
-                        <!-- Available items -->
                         <xsl:otherwise>
-                            <xsl:choose>
-                                <xsl:when test="count($items) = 1"> copy available</xsl:when>
-                                <xsl:otherwise> copies available</xsl:otherwise>
-                            </xsl:choose>
+                            <xsl:text>available</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <!-- " in [Collection]" with color -->
+                    <xsl:text> in </xsl:text>
+                    <xsl:choose>
+                        <!-- SCIFI: Gold -->
+                        <xsl:when test="$firstCcode = 'SCIFI'">
+                            <span style="color: #ffad05; font-weight: 700;">Science Fiction, Fantasy</span>
+                            <xsl:text> under the author's last name</xsl:text>
+                        </xsl:when>
+                        <!-- FIC: Carolina Blue -->
+                        <xsl:when test="$firstCcode = 'FIC'">
+                            <span style="color: #82b1d4; font-weight: 700;">Fiction</span>
+                            <xsl:text> under the author's last name</xsl:text>
+                        </xsl:when>
+                        <!-- MYS: Yellow -->
+                        <xsl:when test="$firstCcode = 'MYS'">
+                            <span style="color: #fcff4b; font-weight: 700; text-shadow: 0 0 2px #000;">Mystery</span>
+                            <xsl:text> under the author's last name</xsl:text>
+                        </xsl:when>
+                        <!-- GN: Burgundy -->
+                        <xsl:when test="$firstCcode = 'GN'">
+                            <span style="color: #982649; font-weight: 700;">Graphic Novels</span>
+                            <xsl:text> under the author's last name</xsl:text>
+                        </xsl:when>
+                        <!-- NFIC: Deep Blue -->
+                        <xsl:when test="$firstCcode = 'NFIC'">
+                            <span style="color: #094074; font-weight: 700;">Non-Fiction</span>
+                            <xsl:text> by call number</xsl:text>
+                        </xsl:when>
+                        <!-- Default/unknown -->
+                        <xsl:otherwise>
+                            <span style="color: #094074; font-weight: 700;">the library</span>
                         </xsl:otherwise>
                     </xsl:choose>
                 </span>
-                <xsl:if test="$max>0 and count($items[items:itemcallnumber!=''])>0 and $OPACItemLocation!='library'">
-                    <span class="CallNumberAndLabel">
-                    <span class="LabelCallNumber">
-                        <xsl:if test="$OPACItemLocation='callnum'">Call number: </xsl:if>
-                        <xsl:if test="$OPACItemLocation='ccode'">Collection, call number: </xsl:if>
-                        <xsl:if test="$OPACItemLocation='location'">Location, call number: </xsl:if>
-                    </span>
-                    <span class="CallNumber">
-                    <xsl:for-each select="$items[items:itemcallnumber!=''][position() &lt;= $max]">
-                        <xsl:if test="$OPACItemLocation='location'">
-                            <strong><xsl:value-of select="concat(items:location,' ')"/></strong>
-                        </xsl:if>
-                        <xsl:if test="$OPACItemLocation='ccode'">
-                            <strong><xsl:value-of select="concat(items:ccode,' ')"/></strong>
-                        </xsl:if>
-                        <!-- TSAS: Color-coded call number based on collection -->
-                        <span>
-                            <xsl:attribute name="style">
-                                <xsl:choose>
-                                    <!-- SciFi: Gold -->
-                                    <xsl:when test="contains(items:ccode, 'SciFi') or contains(items:ccode, 'SCIFI') or contains(items:ccode, 'Sci-Fi')">
-                                        <xsl:text>color: #ffad05; font-weight: 700;</xsl:text>
-                                    </xsl:when>
-                                    <!-- Mystery: Yellow -->
-                                    <xsl:when test="contains(items:ccode, 'Mys') or contains(items:ccode, 'MYS') or contains(items:ccode, 'Mystery')">
-                                        <xsl:text>color: #fcff4b; font-weight: 700; text-shadow: 0 0 2px #000;</xsl:text>
-                                    </xsl:when>
-                                    <!-- Graphic Novel: Burgundy -->
-                                    <xsl:when test="contains(items:ccode, 'GN') or contains(items:ccode, 'Graphic')">
-                                        <xsl:text>color: #982649; font-weight: 700;</xsl:text>
-                                    </xsl:when>
-                                    <!-- Fiction: Carolina Blue -->
-                                    <xsl:when test="contains(items:ccode, 'Fic') or contains(items:ccode, 'FIC') or contains(items:ccode, 'Fiction')">
-                                        <xsl:text>color: #82b1d4; font-weight: 700;</xsl:text>
-                                    </xsl:when>
-                                    <!-- Non-fiction (default for anything else): Deep Blue -->
-                                    <xsl:otherwise>
-                                        <xsl:text>color: #094074; font-weight: 700;</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:attribute>
-                            <xsl:value-of select="items:itemcallnumber"/>
-                        </span>
-                        <xsl:if test="position()!=last()">
-                            <xsl:text>, </xsl:text>
-                        </xsl:if>
-                        <xsl:if test="position()=last() and (count($items)>$max or count($items[items:itemcallnumber=''])>0)">
-                            <xsl:text>, ..</xsl:text>
-                        </xsl:if>
-                    </xsl:for-each>
-                    </span>
-                    </span>
-                </xsl:if>
             </span>
         </xsl:if>
     </xsl:template>
